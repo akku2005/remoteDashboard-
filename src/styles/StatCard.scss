@@ -1,0 +1,8 @@
+.stat-card {
+    @apply p-4 bg-card-bg-color rounded-lg flex items-center justify-between shadow-lg;
+    
+    .icon {
+      @apply text-3xl;
+    }
+  }
+  

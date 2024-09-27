@@ -1,0 +1,40 @@
+.header {
+    background: rgba(31, 64, 41, 0.8); // Transparent background for the header
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; // Padding for the header
+    position: fixed; // Fix the header position
+    top: 0; // Set it to the top
+    left: 80px; // Align to the right of the sidebar (adjusted based on sidebar width)
+    right: 0; // Align to the right
+    z-index: 1000; // Ensure it is above other elements
+  
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-left: 20px; // Add margin for left space
+    }
+  
+    .user-info {
+      display: flex;
+      align-items: center;
+      
+      img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+  
+      .name {
+        font-weight: bold;
+      }
+  
+      .email {
+        font-size: 14px; // Smaller font for email
+      }
+    }
+  }
+  

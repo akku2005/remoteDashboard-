@@ -1,0 +1,64 @@
+/* MainContent.scss */
+
+$bg-dark: #0f2127;
+$bg-light: #1c3c48;
+$card-bg: rgba(255, 255, 255, 0.05);
+$green-accent: #10b981;
+$white: #ffffff;
+
+.main-content {
+  background-color: $bg-dark;
+  color: $white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $white;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    .stat-card {
+      background-color: $card-bg;
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      .icon-container {
+        background-color: $green-accent;
+        padding: 0.5rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card-info {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: $white;
+        }
+
+        .value {
+          font-size: 2rem;
+          font-weight: 700;
+          color: $white;
+        }
+      }
+    }
+  }
+}

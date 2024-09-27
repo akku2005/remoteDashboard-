@@ -1,0 +1,55 @@
+// src/styles/Dashboard.scss
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;  
+}
+
+  
+.dashboard-content {
+  margin-left: 0px; // No left margin, content takes full width
+  width: 100%; // Full width of the dashboard
+  height: 100vh; // Full height of the viewport, even if content exceeds
+  overflow-y: auto; // Adds vertical scrolling when content overflows
+  padding: 20px;
+  background: linear-gradient(to top left, #023a13, #96d3bc); // Dark green to light green gradient
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+
+  // Fixes the height and ensures scrolling
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  
+  
+    .title {
+      font-size: 24px;
+    }
+  
+    .user-info {
+      display: flex;
+      align-items: center;
+  
+      img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+  
+      .name {
+        font-weight: bold;
+      }
+    }
+  }
+  
+  
+  

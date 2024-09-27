@@ -1,0 +1,93 @@
+$gray-900: #1f2937;
+$text-gray: #9ca3af;
+$text-hover: #ffffff;
+
+.sidebar {
+  background-color: $gray-900;
+  height: 100vh;
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+
+  .logo {
+    margin-bottom: 40px;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  .horizontal-line {
+    width: 80%; // Full width of the sidebar
+    height: 1px; // Height of the line
+    background-color: #646464; // You can change the color as needed
+    margin: 5px 0; // Set the top margin to 5px
+  }
+
+  .icons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: auto; // Push this section upwards
+
+    .icon-container {
+      position: relative; // Positioning for the semicircle
+      padding: 5px; // Padding around the icon
+      
+      // This will help with consistent sizing
+      width: 40px; 
+      height: 40px; 
+
+      &.active {
+        border: 2px solid green;
+border-radius: 5px;
+
+        // Semicircle design
+        &::after {
+          content: "";
+          position: absolute;
+          right: -22px; // Position the semicircle outside the container
+          top: 50%; // Center it vertically relative to the icon
+          transform: translateY(-50%); // Adjust for proper positioning
+          width: 10px; // Width of the semicircle
+          height: 40px; // Height of the semicircle
+          background-color: #34d399; // Green color
+          border-radius: 10px 0 0 10px; // Create a semicircle that curves to the left
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional shadow for depth
+        }
+      }
+
+      .icon {
+        height: 28px;
+        width: 28px;
+        color: $text-gray;
+        cursor: pointer;
+
+        &:hover {
+          color: $text-hover;
+        }
+      }
+    }
+  }
+
+  .settings {
+    margin-top: auto; // Ensure the settings section stays at the bottom
+    padding: 1rem 0; // Optional padding for better spacing
+
+    .icon {
+      height: 28px;
+      width: 28px;
+      color: $text-gray;
+      cursor: pointer;
+
+      &:hover {
+        color: $text-hover;
+      }
+    }
+  }
+}
