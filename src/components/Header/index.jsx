@@ -3,14 +3,16 @@ import Icons from "../../constants/Icons";
 
 const Header = () => {
   return (
-    <div className="header flex justify-between items-center">
+    <div className="header flex  items-center ">
       {/* Left Section: Menu Icon and Title */}
       <div className="flex items-center">
-        <img
-          src={Icons.Content}
-          alt="Menu Icon"
-          className="menu-icon w-[32px] h-[32px] text-white"
-        />
+        <a href="#">
+          <img
+            src={Icons.Content}
+            alt="Menu Icon"
+            className="menu-icon w-[32px] h-[32px] text-white"
+          />
+        </a>
         <div className="title ml-2 text-lg font-semibold">Dashboard</div>
       </div>
 
