@@ -5,10 +5,10 @@ import {
   BellIcon,
   ShieldCheckIcon,
   WifiIcon,
-} from "@heroicons/react/24/outline"; // Ensure you import only what you need
+} from "@heroicons/react/24/outline";
 import DeviceCard from "../StatCard/DeviceCard";
-import ProjectInformationChart from "../Chart/ProjectInfromationChart"; // Corrected import spelling
 import Icons from "../../constants/Icons";
+import Frame10588 from "../../assets/icons/Frame10588.png";
 
 const MainContent = () => {
   return (
@@ -43,7 +43,7 @@ const MainContent = () => {
 
         {/* Icon Section */}
         <div className="flex space-x-4 w-[111px] h-[111px]">
-          <img src={Icons.wifiIcon} alt="WiFi" className="w-full h-full" />
+          <img src={Icons.wifiIcon} alt="WiFi Icon" className="w-full h-full" />
         </div>
       </div>
 
@@ -80,26 +80,35 @@ const MainContent = () => {
             value={12}
             label="Devices"
             buttonText="View"
-            onButtonClick={() => console.log("Button Clicked")}
+            onButtonClick={() => console.log("Device Button Clicked")}
           />
 
           <DeviceCard
             icon1={HomeIcon}
             icon2={BellIcon}
             value={12}
-            label="Device Items"
+            label={
+              <>
+                Device
+                <br />
+                Items
+              </>
+            }
           />
+
           <DeviceCard
             icon1={HomeIcon}
             icon2={BellIcon}
             value={12}
             label="Devices"
+            onButtonClick={() => console.log("Devices Button Clicked")}
           />
           <DeviceCard
             icon1={HomeIcon}
             icon2={BellIcon}
             value={12}
             label="Device Items"
+            onButtonClick={() => console.log("Device Items Button Clicked")}
           />
         </div>
 
@@ -108,39 +117,56 @@ const MainContent = () => {
           {/* Heading Outside the Box */}
           <h2 className="text-xl font-semibold mb-2">Additional Information</h2>
 
-          {/* Box Container with Glassmorphism */}
-          <div className="bg-white bg-opacity-20 backdrop-blur-md rounded-[16px] border border-transparent pt-[24px] pl-[32px] pr-[32px] pb-[24px] w-[640px] h-[450px]">
-            {/* Increased height by 50px */}
-            <div className="grid grid-cols-2 mt-4 justify-between text-left">
-              <div>
-                <img src={Icons.Maskgroup} alt="icons" />
-              </div>
-              <div>
-                <p>8th September 2024</p>
-              </div>
-            </div>
-            {/* Text Section */}
-            <div className="grid grid-cols-2 mt-5 text-left">
-              <div>
-                <h2 className="text-2xl font-bold">My Project</h2>
-                <p className="text-sm font-normal">Moli Area</p>
-              </div>
-              <div className="grid grid-cols-3 items-center">
+          <div className="grid grid-cols-1 gap-2 justify-center">
+            <div className="bg-white bg-opacity-20 backdrop-blur-md rounded-[16px] border border-transparent pt-[24px] px-4 pb-[24px] md:px-[32px] w-full md:w-full h-[500px] mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 mt-4 justify-between text-left">
                 <div>
-                  <h3 className="text-2xl font-bold">01</h3>
-                  <p className="text-sm font-normal">Gateway</p>
+                  <img
+                    src={Icons.Maskgroup}
+                    alt="Mask Group Icon"
+                    className="w-[42px] h-[42px] "
+                  />
                 </div>
-
-                {/* Vertical Line */}
-                <div className="w-[5px] h-[50px] bg-green-400 mx-auto" />
-
-                <div>
-                  <h3 className="text-2xl font-bold">01</h3>
-                  <p className="text-sm font-normal">AP</p>
+                <div className="flex items-center md:justify-end">
+                  <p className="text-center md:text-right">
+                    8th September 2024
+                  </p>
                 </div>
               </div>
+
+              {/* Text Section */}
+              <div className="grid grid-cols-1 md:grid-cols-2 mt-4 justify-between text-left">
+                <div>
+                  <h2 className="text-xl md:text-2xl font-bold">My Project</h2>
+                  <p className="text-sm font-normal">Moli Area</p>
+                </div>
+                <div className="flex items-center md:justify-end">
+                  <div className="grid grid-cols-2 justify-between">
+                    <div className="w-[8px] h-[50px] bg-slate-400 mx-auto" />
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold">01</h3>
+                      <p className="text-sm font-normal">Gateway</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 justify-between">
+                    <div className="w-[8px] h-[50px] bg-green-400 mx-auto" />
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold">01</h3>
+                      <p className="text-sm font-normal">Gateway</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Chart Section */}
+              <div className="mb-12 flex justify-center mt-6">
+                <img
+                  src={Frame10588}
+                  alt="Chart Representation"
+                  className="max-w-[400px] h-auto"
+                />
+              </div>
             </div>
-            <ProjectInformationChart />
           </div>
         </div>
       </div>
