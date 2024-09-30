@@ -41,7 +41,7 @@ const Sidebar = () => {
     <div className="sidebar-container relative">
       {/* Hamburger Menu Icon for Mobile */}
       <div
-        className="hamburger-icon md:hidden fixed mt-[130px] left-1 z-50 bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-2"
+        className="hamburger-icon md:hidden fixed mt-[120px] left-1 z-50 bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-2"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         <GiHamburgerMenu className="icon w-6 h-6 text-white" />

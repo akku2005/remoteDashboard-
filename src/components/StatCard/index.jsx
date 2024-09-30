@@ -2,14 +2,14 @@ import React from "react";
 
 const Card = ({ icon: Icon, value, label, buttonText }) => {
   return (
-    <div className="flex flex-col items-start p-[21px] gap-[10px] w-full h-[204px] bg-white bg-opacity-10 rounded-[16px] box-border border border-gray-400">
+    <div className="flex flex-col items-start p-5 gap-2 w-full max-w-sm h-[204px] bg-white bg-opacity-10 rounded-[16px] border border-gray-400">
       <div className="flex items-start mb-2">
-        {Icon && <Icon className="w-[32px] h-[32px] text-white mr-2" />}{" "}
+        {Icon && <Icon className="w-8 h-8 text-white mr-2" />}
         {/* Icon with margin */}
       </div>
-      <div className="flex items-center justify-between w-full mt-auto h-[58px] gap-[10px]">
+      <div className="flex items-center justify-between w-full mt-auto h-[58px] gap-2">
         {/* Aligning items */}
-        <div className="flex items-end w-[171px] h-[58px] gap-[12px]">
+        <div className="flex items-end w-[171px] h-[58px] gap-3">
           <div className="w-[74px] h-[58px] font-semibold text-[64px] leading-none text-white">
             {value}
           </div>
