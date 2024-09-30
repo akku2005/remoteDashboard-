@@ -24,16 +24,16 @@
 
 // Pseudo-element for semicircle effect
 .icon-container.active::after {
-  content: ''; // Required for pseudo-element
+  content: ''; /* Required for pseudo-element */
   position: absolute;
-  right: -31px; // Adjust this value to position the semicircle
-  top: 50%; // Center vertically
-  transform: translateY(-50%); // Adjust to vertical center
-  width: 8px; // Width of the semicircle
-  height: 53px; // Height of the semicircle
-  background-color: #56EE68; // Color of the semicircle
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  right: -25px; /* Adjust this value to ensure the semicircle aligns well */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust to vertical center */
+  width: 8px; /* Width of the semicircle */
+  height: 50px; /* Height of the semicircle */
+  background-color: #56EE68; /* Color of the semicircle */
+  border-top-left-radius: 25px; /* Increase radius for smoother corners */
+  border-bottom-left-radius: 25px; /* Increase radius for smoother corners */
 }
 
 .icon {
@@ -46,4 +46,127 @@
 
 .logo img {
   width: 100%; // Make sure the logo is responsive
+}
+
+@media (max-width: 780px) {
+  .sidebar {
+    width: 70px; /* Reduce sidebar width on mobile */
+    padding: 8px; /* Adjust padding to fit smaller screens */
+  }
+
+  .icon-container {
+    width: 40px; /* Decrease the size of the icon container */
+    height: 40px;
+    padding: 8px;
+  }
+
+  .icon {
+    width: 20px; /* Adjust icon size */
+    height: 20px;
+  }
+
+  .icon-container.active::after {
+    right: -15px; /* Adjust semicircle position for mobile */
+    width: 6px;   /* Adjust semicircle width */
+    height: 40px; /* Adjust semicircle height */
+  }
+
+  .logo img {
+    width: 50px; /* Scale down the logo for mobile */
+    height: 50px; /* Ensure proportional scaling */
+  }
+}
+
+/* For very small screens (e.g., mobile phones under 500px wide) */
+@media (max-width: 500px) {
+  .sidebar-container {
+    position: relative;
+  }
+  
+  .sidebar {
+    background-color: #333;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    padding: 1rem;
+    transform: translateX(-100%); /* Hidden offscreen initially */
+  }
+  
+  .sidebar.open {
+    transform: translateX(0); /* Slide in when open */
+  }
+  
+  .hamburger-icon {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .hamburger-icon {
+      display: block; /* Show on mobile screens */
+    }
+  
+    .sidebar {
+      transform: translateX(-100%); /* Keep sidebar offscreen for mobile */
+    }
+  
+    .sidebar.open {
+      transform: translateX(0); /* Slide in sidebar when open */
+    }
+  }
+  
+  .sidebar {
+    background-color: #0D0D0D; // Example background color for the sidebar
+    width: 70px; // Adjust width as per your design
+  }
+  
+  .icon-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; // Keep this the same as the active state
+    height: 50px; // Keep this the same as the active state
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-sizing: border-box; // Include border in the element’s dimensions
+  }
+  
+  .icon-container.active {
+    border-radius: 4px;
+    border: 1px solid #56EE68;
+    box-sizing: border-box; // Ensure border doesn't affect width/height
+  }
+  
+  // Pseudo-element for semicircle effect
+  .icon-container.active::after {
+    content: ''; /* Required for pseudo-element */
+    position: absolute;
+    right: -11px; /* Adjust this value to ensure the semicircle aligns well */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust to vertical center */
+    width: 8px; /* Width of the semicircle */
+    height: 50px; /* Height of the semicircle */
+    background-color: #56EE68; /* Color of the semicircle */
+    border-top-left-radius: 25px; /* Increase radius for smoother corners */
+    border-bottom-left-radius: 25px; /* Increase radius for smoother corners */
+  }
+  
+  .icon {
+    color: #374151; // Default icon color
+  }
+  
+  .icon-container.active .icon {
+    color: #fff; // Active icon color
+  }
+}  
+@media (min-width: 500px) {
+  .hamburger-icon {
+    display: none;
+  }
+  
 }
