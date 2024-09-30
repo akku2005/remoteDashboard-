@@ -1,14 +1,18 @@
-// src/App.js
 import React from "react";
-import Dashboard from "./components/Dashboard"; // Import the Dashboard component
-
+import PageRoutes from "./Routes";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./styles/App.scss";
 
 function App() {
   return (
-    <div className="app flex">
-      <Dashboard />
-    </div>
+    // <div className="app flex">
+    //  <Router>
+    //   <PageRoutes />
+    // </Router>
+    // </div>
+    <Router>
+      <PageRoutes />
+    </Router>
   );
 }
 

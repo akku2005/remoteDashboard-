@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { RiDashboardHorizontalLine } from "react-icons/ri";
 import { IoWifiOutline, IoSettingsOutline } from "react-icons/io5";
 import { FaRegFolder } from "react-icons/fa";
@@ -62,68 +63,74 @@ const Sidebar = () => {
 
         {/* Icons Section */}
         <div className="icons flex-grow flex flex-col items-center">
-          <div
+          <Link
+            to="/dashboard"
             className={`icon-container ${
               activePage === "Present" ? "active" : ""
             }`}
             onClick={() => handleIconClick("Present")}
           >
             <RiDashboardHorizontalLine className="icon w-6 h-6 text-white" />
-          </div>
-          <div
+          </Link>
+          <Link
+            to="/devices"
             className={`icon-container ${
               activePage === "Devices" ? "active" : ""
             }`}
             onClick={() => handleIconClick("Devices")}
           >
             <IoWifiOutline className="icon w-6 h-6 text-white" />
-          </div>
-          <div
+          </Link>
+
+          <Link
+            to="/notifications"
             className={`icon-container ${
               activePage === "Notifications" ? "active" : ""
             }`}
             onClick={() => handleIconClick("Notifications")}
           >
             <FaRegFolder className="icon w-6 h-6 text-white" />
-          </div>
-          <div
+          </Link>
+          <Link
+            to="/security"
             className={`icon-container ${
               activePage === "Security" ? "active" : ""
             }`}
             onClick={() => handleIconClick("Security")}
           >
             <MdOutlineSecurity className="icon w-6 h-6 text-white" />
-          </div>
-
-          {/* New Icons: Lock and Users */}
-          <div
+          </Link>
+          <Link
+            to="/lock"
             className={`icon-container ${
               activePage === "Lock" ? "active" : ""
             }`}
             onClick={() => handleIconClick("Lock")}
           >
             <CiLock className="icon w-6 h-6 text-white" />
-          </div>
-          <div
+          </Link>
+          <Link
+            to="/users"
             className={`icon-container ${
               activePage === "Users" ? "active" : ""
             }`}
             onClick={() => handleIconClick("Users")}
           >
             <TbUsers className="icon w-6 h-6 text-white" />
-          </div>
+          </Link>
         </div>
 
         {/* Bottom Section: Settings */}
         <div className="settings mt-4">
-          <div
+          <Link
+            to="/settings"
             className={`icon-container ${
               activePage === "Settings" ? "active" : ""
             }`}
             onClick={() => handleIconClick("Settings")}
           >
             <IoSettingsOutline className="icon w-6 h-6 text-white" />
-          </div>
+          </Link>
         </div>
       </div>
     </div>
