@@ -8,7 +8,7 @@ import { CiLock } from "react-icons/ci";
 import { TbUsers } from "react-icons/tb";
 import { GiHamburgerMenu } from "react-icons/gi"; // Icon for opening sidebar
 import "../../styles/Sidebar.scss";
-import Icons from "../../constants/Icons"; // Assuming you have a logo in this file
+import Icons from "../../constants/Icons";
 
 const Sidebar = () => {
   const [activePage, setActivePage] = useState("Present");
