@@ -1,8 +1,42 @@
+// src/styles/Dashboard.scss
+
 .dashboard-container {
   display: flex;
   height: 100vh;
   width: 100vw;
+
+  &.dark {
+    background-color: #121212; // Dark mode background
+    color: white;
+
+    .dashboard-content {
+      background: linear-gradient(
+        to bottom right,
+        #3f633f 0%,
+        #204c2b 50%,
+        #0eb32f 100%
+      );
+      color: #fff;
+    }
+  }
+
+  &.light {
+    background-color: #f5f5f5; 
+    color: black;
+
+    .dashboard-content {
+      background: linear-gradient(
+        to bottom right,
+        rgba(186, 239, 186, 0.8), // Light Green (top left)
+        rgba(104, 143, 104, 0.8) 50%, // Light Green (middle)
+        rgba(0, 255, 0, 0.8) // Dark Green (bottom right)
+      );
+      color: black;
+    }
+    
+  }
 }
+
 
 .dashboard-content {
   margin-left: 0px; // No left margin, content takes full width
@@ -33,6 +67,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
   
   .title {
     font-size: 24px;

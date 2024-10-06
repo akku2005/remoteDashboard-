@@ -4,10 +4,14 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import MainContent from "./MainContent";
 import "../styles/Dashboard.scss";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Dashboard = () => {
+  // Use ThemeContext
+  const { isDarkMode } = React.useContext(ThemeContext);
+
   return (
-    <div className="dashboard-container">
+    <div className={`dashboard-container ${isDarkMode ? "dark" : "light"}`}>
       {/* Sidebar */}
       <Sidebar />
 

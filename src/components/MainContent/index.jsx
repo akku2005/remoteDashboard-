@@ -216,8 +216,6 @@
 import React from "react";
 import "../../styles/MainContent.scss";
 import Icons from "../../constants/Icons";
-import { Line } from "react-chartjs-2"; // Import for Line Chart
-import { Pie } from "react-chartjs-2"; // Import for Pie Chart
 import ChatPage from "../Chart/ChatPage";
 import DeviceStatistics from "../Chart/DeviceStatistics";
 import {
@@ -231,8 +229,7 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
-import { FaWifi } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
+import { FaWifi, FaInfoCircle } from "react-icons/fa";
 
 // Register the necessary components for charts
 ChartJS.register(
@@ -246,7 +243,7 @@ ChartJS.register(
   ArcElement
 );
 
-const MainContent = () => {
+const MainContent = ({ isDarkMode }) => {
   // Sample data for the Line Chart
   const lineChartData = {
     labels: ["January", "February", "March", "April", "May", "June"],
@@ -275,107 +272,90 @@ const MainContent = () => {
     ],
   };
 
+  // Define text color based on dark mode
+  const textColorClass = isDarkMode ? "text-white" : "text-gray-800"; // Adjust colors as needed
+
   return (
-    <section className="main-content mt-6">
+    <section className={`main-content mt-6`}>
       <div className="grid-container">
         {/* Resource Section */}
-        <div className="flex flex-col md:flex-row gap-16 w-full h-auto">
+        <div className="flex flex-col gap-8 w-full h-auto">
           <div className="flex flex-col flex-1">
-            <div className="flex items-center justify-between text-xl font-medium text-white mb-2">
+            <div
+              className={`flex items-center justify-between text-xl font-medium mb-2`}
+            >
               <p>Resource Statistics</p>
             </div>
-
-            <div className="flex flex-row gap-16 mt-3">
-              <div className="text-white font-bold flex items-end gap-4">
-                <span className="font-semibold text-[50px] leading-none">
-                  12
-                </span>
-                <p className="text-[20px] leading-[24px] font-medium text-gray-300">
-                  Total Devices
-                </p>
-              </div>
-              <div className="text-white font-bold flex items-end gap-4">
-                <span className="font-semibold text-[50px] leading-none">
-                  05
-                </span>
-                <p className="text-[20px] leading-[24px] font-medium text-gray-300">
-                  Active Devices
-                </p>
-              </div>
+            <div className="flex flex-col md:flex-row gap-16 mt-3">
+              {[
+                { count: 12, label: "Total Devices" },
+                { count: 6, label: "Online Total" },
+                { count: 4, label: "Alarm Total" },
+                { count: 6, label: "Offline Total" },
+                { count: 6, label: "Inspection Report" },
+              ].map(({ count, label }) => (
+                <div key={label} className="font-bold flex items-end gap-4">
+                  <span className="font-semibold text-[40px] md:text-[50px] leading-none">
+                    {count}
+                  </span>
+                  <p
+                    className={`text-[16px] md:text-[20px] leading-[24px] font-medium`}
+                  >
+                    {label}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Statistics Section */}
-        <div className="flex flex-col md:flex-row gap-16 w-full h-auto mt-10 ml-16">
-          {[
-            "Additional Resources",
-            "Alarm Total",
-            "Offline Total",
-            "Inspection Report",
-          ].map((title, index) => (
-            <div className="flex flex-col flex-1" key={index}>
-              <div className="text-white font-bold flex items-end gap-4 mt-3">
-                <span className="font-semibold text-[50px] leading-none">
-                  {index === 0 ? 5 : index === 1 ? 4 : index === 2 ? 6 : 6}
-                </span>
-                <p className="text-[20px] leading-[24px] font-medium text-gray-300">
-                  {title}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
         {/* Icon Section */}
-        <div className="flex justify-end w-full mt-10">
+        <div className="flex justify-end w-full mt-10 md:ml-40">
           <img
             src={Icons.wifiIcon}
             alt="WiFi Icon"
-            className="w-auto h-auto md:w-[80px] md:h-[80px]"
+            className="hidden md:block w-auto h-auto md:w-[80px] md:h-[80px]"
           />
         </div>
       </div>
 
       {/* Chart Section */}
       <div>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="flex-1 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex-1 mt-1">
             {/* Project Info Header */}
-            <h1 className="text-white text-3xl font-[500] text-[24px] leading-[28.8px] mb-6">
+            <h1 className={`text-2xl md:text-3xl font-[500] mb-6`}>
               Project Info
             </h1>
-
-            {/* Main Flex Container */}
-            <div className="flex space-x-4">
+            <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
               {/* First Project Box */}
-              <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-4 shadow-lg flex flex-col justify-between w-full h-[200px] gap-4 box-border border border-gray-100 border-opacity-30 flex-1">
+              <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-4 shadow-lg flex flex-col justify-between w-full h-[200px] gap-4 border border-gray-100 border-opacity-30 flex-1">
                 <div className="flex items-center mb-2 gap-4">
-                  <FaWifi className="h-[24px] w-[24px] " />
-                  <h2 className="text-lg">My Project</h2>
+                  <FaWifi className="h-[24px] w-[24px] text-[rgb(86,238,104)]" />
+                  <h2 className={`text-lg md:text-xl`}>My Project</h2>
                 </div>
-                <p className="text-sm mb-4">
+                <p className={`text-sm md:text-base mb-4`}>
                   Creation Time: 2024-08-22 17:59:59
                 </p>
                 <div className="flex justify-between">
                   <div className="text-center flex items-center gap-4">
-                    <p className="text-3xl">01</p>
-                    <p className="text-sm">AP</p>
+                    <p className="text-3xl font-bold">01</p>
+                    <p className="text-sm md:text-base">AP</p>
                   </div>
                   <div className="text-center flex items-center gap-4">
-                    <p className="text-3xl">01</p>
-                    <p className="text-sm">Gateway</p>
+                    <p className="text-3xl font-bold">01</p>
+                    <p className="text-sm md:text-base">Gateway</p>
                   </div>
                 </div>
               </div>
 
               {/* Second Project Box */}
-              <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-4 shadow-lg  w-full h-[200px] gap-4 box-border border  border-gray-100 border-opacity-30 flex flex-col justify-center items-center flex-1">
+              <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-4 shadow-lg w-full h-[200px] gap-4 border border-gray-100 border-opacity-30 flex flex-col justify-center items-center flex-1">
                 <div className="text-center">
-                  <div className="flex justify-center items-center">
-                    <FaWifi className="text-xl mb-2" />
-                  </div>
-                  <h2 className="text-3xl font-semibold">No Project Info</h2>
+                  <FaWifi className="text-xl mb-2" />
+                  <h2 className={`text-lg md:text-3xl font-semibold`}>
+                    No Project Info
+                  </h2>
                 </div>
               </div>
             </div>
@@ -383,35 +363,44 @@ const MainContent = () => {
 
           <div className="flex-1">
             {/* Pending info */}
-            <div className="text-white text-center">
-              {/* Title and Info Icon */}
+            <div className="text-center">
               <div className="flex justify-between items-center mb-7">
-                <h1 className="text-white text-3xl font-[500] text-[24px] leading-[28.8px]">
+                <h1 className={`text-2xl md:text-3xl font-[500]`}>
                   Pending Info
                 </h1>
-                <FaInfoCircle className="text-white  w-[24px] h-[24px]" />
+                <FaInfoCircle className={`w-[24px] h-[24px]`} />
               </div>
 
               {/* Two boxes side by side */}
-              <div className="flex space-x-6 ">
+              <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
                 {/* First Box */}
-                <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-4 shadow-lg  w-full h-[200px] gap-4 box-border border  border-gray-100 border-opacity-30 flex flex-col items-center justify-between">
-                  <div className="text-5xl font-bold">02</div>
-                  <div className="text-white text-3xl font-[500] text-[24px] leading-[28.8px]">
-                    Pending Project
+                <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-4 shadow-lg w-full h-[200px] gap-4 border border-gray-100 border-opacity-30 flex flex-col justify-between">
+                  <div className="flex justify-between items-center w-full px-4">
+                    <div className="text-5xl font-bold">02</div>
+                    <div className={`text-lg md:text-3xl font-[500]`}>
+                      Pending Project
+                    </div>
                   </div>
-                  <button className="bg-[#56EE6830] text-[#56EE68] font-medium rounded-full border border-[#56EE68] opacity-100 w-full h-[37px] flex justify-center items-center p-[10px]">
-                    Dispose
-                  </button>
+                  <div className="flex-grow flex flex-col items-end justify-end w-full">
+                    <button className="bg-[#56EE6830] text-[#56EE68] font-medium rounded-full border border-[#56EE68] opacity-100 w-[150px] h-[37px] flex justify-center items-center p-[10px]">
+                      Dispose
+                    </button>
+                  </div>
                 </div>
 
                 {/* Second Box */}
-                <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-4 shadow-lg  w-full h-[200px] gap-4 box-border border  border-gray-100 border-opacity-30 flex flex-col items-center justify-between">
-                  <div className="text-5xl font-bold">0</div>
-                  <div className="text-lg font-medium">Account Change</div>
-                  <button className="bg-[#56EE6830] text-[#56EE68] font-medium rounded-full border border-[#56EE68] opacity-100 w-full h-[37px] flex justify-center items-center p-[10px]">
-                    Dispose
-                  </button>
+                <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-lg p-4 shadow-lg w-full h-[200px] gap-4 border border-gray-100 border-opacity-30 flex flex-col justify-between">
+                  <div className="flex justify-between items-center w-full px-4">
+                    <div className="text-5xl font-bold">0</div>
+                    <div className={`text-lg md:text-3xl font-medium`}>
+                      Account Change
+                    </div>
+                  </div>
+                  <div className="flex-grow flex flex-col items-end justify-end w-full">
+                    <button className="bg-[#56EE6830] text-[#56EE68] font-medium rounded-full border border-[#56EE68] opacity-100 w-[150px] h-[37px] flex justify-center items-center p-[10px]">
+                      Dispose
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -419,21 +408,21 @@ const MainContent = () => {
         </div>
 
         {/* Chat Page and Device Statistics Side by Side */}
-        <div className="flex justify-between mt-8 w-full space-x-4">
-          <div className="w-1/2 inline-block mt-4">
+        <div className="flex flex-col md:flex-row justify-between mt-8 w-full space-y-4 md:space-y-0 md:space-x-4">
+          <div className="w-full md:w-1/2 inline-block mt-4">
             <div className="flex justify-between items-center mb-4">
-              <h1 className="text-white text-3xl font-[500] text-[24px] leading-[28.8px]">
+              <h1 className={`text-2xl md:text-3xl font-[500]`}>
                 User Activity
               </h1>
             </div>
             <ChatPage />
           </div>
-          <div className="w-1/2 inline-block mt-4">
+          <div className="w-full md:w-1/2 inline-block mt-4">
             <div className="flex justify-between items-center mb-4">
-              <h1 className="text-white text-3xl font-[500] text-[24px] leading-[28.8px]">
+              <h1 className={`text-2xl md:text-3xl font-[500]`}>
                 Device Statistics
               </h1>
-              <FaInfoCircle className="text-white  w-[24px] h-[24px]" />
+              <FaInfoCircle className={`w-[24px] h-[24px]`} />
             </div>
             <DeviceStatistics />
           </div>

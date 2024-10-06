@@ -114,9 +114,9 @@ const UserActivity = () => {
 
   return (
     <div>
-      <div className="bg-white bg-opacity-10 rounded-lg p-6 border  border-gray-100 border-opacity-30">
+      <div className="bg-white bg-opacity-10 rounded-lg p-4 md:p-6 border border-gray-100 border-opacity-30">
         {/* Custom legend for the chart */}
-        <div className="flex items-center mb-4">
+        <div className="flex flex-col md:flex-row items-center mb-4">
           <div
             className="flex items-center mr-4 cursor-pointer"
             onClick={() => toggleDatasetVisibility("2024-09-09")}
@@ -138,14 +138,14 @@ const UserActivity = () => {
             <div className="w-[40px] h-[17px] bg-green-300 mr-2 rounded-[5px]"></div>
             <span className="text-white">2024-10-01</span>
           </div>
-          <div className="ml-auto">
-            <button className="bg-[#56EE6830] text-[#56EE68] font-medium rounded-full border border-[#56EE68] opacity-100 w-[143px] h-[37px] flex justify-center items-center">
+          <div className="ml-auto mt-4 md:mt-0">
+            <button className="bg-[#56EE6830] text-[#56EE68] font-medium rounded-full border border-[#56EE68] opacity-100 w-full md:w-[143px] h-[37px] flex justify-center items-center">
               Nearly 3 Days
             </button>
           </div>
         </div>
         {/* Chart container with dynamic height */}
-        <div className="h-64">
+        <div className="h-64 md:h-72">
           <Line data={chartData} options={chartOptions} />
         </div>
       </div>
