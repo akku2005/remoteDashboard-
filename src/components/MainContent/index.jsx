@@ -213,6 +213,7 @@
 // };
 
 // export default MainContent;
+
 import React from "react";
 import "../../styles/MainContent.scss";
 import Icons from "../../constants/Icons";
@@ -276,7 +277,7 @@ const MainContent = ({ isDarkMode }) => {
   const textColorClass = isDarkMode ? "text-white" : "text-gray-800"; // Adjust colors as needed
 
   return (
-    <section className={`main-content mt-6`}>
+    <section className={`main-content mt-6 mb-14`}>
       <div className="grid-container">
         {/* Resource Section */}
         <div className="flex flex-col gap-8 w-full h-auto">

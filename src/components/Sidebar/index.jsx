@@ -16,10 +16,10 @@ const Sidebar = () => {
 
   const handleIconClick = (page) => {
     setActivePage(page);
-    setIsSidebarOpen(false); // Close sidebar on icon click
+    setIsSidebarOpen(false); // Close sidebar on icon click for mobile
   };
 
-  // Handle outside click to close sidebar
+  // Handle outside click to close sidebar for mobile
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (
@@ -39,23 +39,16 @@ const Sidebar = () => {
   }, [isSidebarOpen]);
 
   return (
-    <div className="sidebar-container relative">
-      {/* Hamburger Menu Icon for Mobile */}
+    <div className="sidebar-container relative ">
+      {/* Sidebar for large screens */}
       <div
-        className="hamburger-icon md:hidden fixed mt-[10px] left-2 z-50 bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-2"
-        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-      >
-        <GiHamburgerMenu className="icon w-6 h-6 text-white" />
-      </div>
-
-      <div
-        className={`sidebar ${
+        className={`sidebar  ${
           isSidebarOpen ? "open" : ""
-        } flex flex-col justify-between h-full p-4`}
+        }  flex-col justify-between h-full p-4 hidden md:flex`}
       >
         {/* Top Section: Logo */}
         <div className="logo mb-4">
-          <img src={Icons.Logo} alt="Wis" className="w-16 h-16" />
+          <img src={Icons.Logo} alt="Logo" className="w-16 h-16" />
         </div>
 
         {/* Horizontal line under the logo */}
@@ -132,6 +125,54 @@ const Sidebar = () => {
             <IoSettingsOutline className="icon w-6 h-6 text-white" />
           </Link>
         </div>
+      </div>
+
+      {/* Bottom Navigation for Mobile */}
+      <div className="bottom-nav md:hidden fixed bottom-0 left-0 right-0 bg-[#0D0D0D] flex justify-around items-center p-2 z-50">
+        <Link
+          to="/dashboard"
+          className={`icon-container ${
+            activePage === "Present" ? "active" : ""
+          }`}
+          onClick={() => handleIconClick("Present")}
+        >
+          <RiDashboardHorizontalLine className="icon w-6 h-6 text-white" />
+        </Link>
+        <Link
+          to="/devices"
+          className={`icon-container ${
+            activePage === "Devices" ? "active" : ""
+          }`}
+          onClick={() => handleIconClick("Devices")}
+        >
+          <IoWifiOutline className="icon w-6 h-6 text-white" />
+        </Link>
+        <Link
+          to="/notifications"
+          className={`icon-container ${
+            activePage === "Notifications" ? "active" : ""
+          }`}
+          onClick={() => handleIconClick("Notifications")}
+        >
+          <FaRegFolder className="icon w-6 h-6 text-white" />
+        </Link>
+
+        <Link
+          to="/users"
+          className={`icon-container ${activePage === "Users" ? "active" : ""}`}
+          onClick={() => handleIconClick("Users")}
+        >
+          <TbUsers className="icon w-6 h-6 text-white" />
+        </Link>
+        <Link
+          to="/settings"
+          className={`icon-container ${
+            activePage === "Settings" ? "active" : ""
+          }`}
+          onClick={() => handleIconClick("Settings")}
+        >
+          <IoSettingsOutline className="icon w-6 h-6 text-white" />
+        </Link>
       </div>
     </div>
   );

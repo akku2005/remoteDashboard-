@@ -27,9 +27,9 @@
     .dashboard-content {
       background: linear-gradient(
         to bottom right,
-        rgba(186, 239, 186, 0.8), // Light Green (top left)
-        rgba(104, 143, 104, 0.8) 50%, // Light Green (middle)
-        rgba(0, 255, 0, 0.8) // Dark Green (bottom right)
+        rgb(209, 224, 209), // Light Green (top left)
+        rgba(155, 217, 155, 0.8) 80%, // Light Green (middle)
+        rgba(177, 225, 177, 0.8) // Dark Green (bottom right)
       );
       color: black;
     }
