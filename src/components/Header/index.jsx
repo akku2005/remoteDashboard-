@@ -24,10 +24,9 @@ const Header = () => {
 
         {/* Right Section: User Info and Notifications */}
         <div className="flex items-center space-x-4">
-          {/* Toggle Theme Button */}
           <button
             onClick={toggleTheme}
-            className={`toggle-theme rounded-full p-2 ${
+            className={`toggle-theme rounded-full w-8 h-8 p-2 flex justify-center ${
               isDarkMode ? "bg-gray-800 text-white" : "bg-gray-200 text-black"
             }`}
           >
@@ -41,11 +40,9 @@ const Header = () => {
           {/* User Info and Avatar */}
           <div className="hidden md:flex items-center space-x-4">
             <div className="flex flex-col">
-              <div className="name text-base font-semibold">
-                Smruti Ranjan Nayak
-              </div>
-              <div className="email text-sm text-gray-500">
-                sm@uti@gmail.com
+              <div className="name text-lg font-medium">akash</div>
+              <div className="email text-sm text-gray-500 hidden">
+                sm@akash@gmail.com
               </div>
             </div>
 
@@ -74,8 +71,8 @@ const Header = () => {
       </div>
       {/* Mobile Header (Part 1: Logo, Profile, and Notifications) */}
       <div
-        className={`header fixed top-0 left-0 w-full z-50 flex md:hidden items-center justify-between p-4 bg-white shadow-lg h-16 ${
-          isDarkMode ? " text-white bg-green-900" : " text-black bg-white"
+        className={`header fixed top-0 left-0 w-full z-50 flex md:hidden items-center justify-between p-4  shadow-lg h-18 ${
+          isDarkMode ? " text-white bg-green-900" : " text-black bg-green-800"
         }`}
       >
         {/* Logo */}
@@ -113,7 +110,7 @@ const Header = () => {
       </div>
       {/* Mobile Header (Part 2: Menu and Dashboard Text) */}
       <div
-        className={`header flex md:hidden items-center justify-between mt-[70px]  ${
+        className={`header flex md:hidden items-center justify-between mt-[90px]  ${
           isDarkMode ? " text-white" : " text-black"
         }`} // Adjust the margin to create spacing between the fixed header and content
       >
