@@ -5,11 +5,6 @@ import "./styles/App.scss";
 
 function App() {
   return (
-    // <div className="app flex">
-    //  <Router>
-    //   <PageRoutes />
-    // </Router>
-    // </div>
     <Router>
       <PageRoutes />
     </Router>

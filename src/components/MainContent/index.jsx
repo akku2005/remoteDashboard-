@@ -1,219 +1,3 @@
-// import React from "react";
-// import Card from "../StatCard";
-// import {
-//   HomeIcon,
-//   BellIcon,
-//   ShieldCheckIcon,
-// } from "@heroicons/react/24/outline";
-// import DeviceCard from "../StatCard/DeviceCard";
-// import Icons from "../../constants/Icons";
-// import Frame10588 from "../../assets/icons/Frame10588.png";
-
-// const MainContent = () => {
-//   return (
-//     <div className="statistics mt-6">
-//       {/* Header with Resources and Statistics */}
-//       <div className="flex flex-col md:flex-row items-center mt-5">
-//         {/* Resource Section */}
-//         <div className="flex flex-col md:flex-row gap-5 w-full md:w-[650px] h-auto">
-//           {/* Resource Title */}
-//           <div className="flex flex-col flex-1">
-//             <div className="text-xl font-medium text-white">Resource</div>
-
-//             {/* Total Devices */}
-//             <div className="text-white font-bold flex items-end gap-4 mt-3">
-//               <span className="w-[63px] h-[58px] font-semibold text-[64px] leading-none">
-//                 12
-//               </span>
-//               <p className="text-[24px] leading-[28px] font-medium text-gray-300">
-//                 Total Devices
-//               </p>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Statistics Section */}
-//         <div className="flex flex-col md:flex-row gap-5 w-full md:w-[650px] h-auto">
-//           {/* Online Total */}
-//           <div className="flex flex-col flex-1">
-//             <div className="text-white font-bold flex items-end gap-4 mt-3">
-//               <span className="w-[63px] h-[58px] font-semibold text-[64px] leading-none">
-//                 06
-//               </span>
-//               <p className="text-[24px] leading-[28px] font-medium text-gray-300">
-//                 Online Total
-//               </p>
-//             </div>
-//           </div>
-
-//           {/* Alarm Total */}
-//           <div className="flex flex-col flex-1">
-//             <div className="text-white font-bold flex items-end gap-4 mt-3">
-//               <span className="w-[63px] h-[58px] font-semibold text-[64px] leading-none">
-//                 04
-//               </span>
-//               <p className="text-[24px] leading-[28px] font-medium text-gray-300">
-//                 Alarm Total
-//               </p>
-//             </div>
-//           </div>
-
-//           {/* Offline Total */}
-//           <div className="flex flex-col flex-1">
-//             <div className="text-white font-bold flex items-end gap-4 mt-3">
-//               <span className="w-[63px] h-[58px] font-semibold text-[64px] leading-none">
-//                 06
-//               </span>
-//               <p className="text-[24px] leading-[28px] font-medium text-gray-300">
-//                 Offline Total
-//               </p>
-//             </div>
-//           </div>
-
-//           {/* Inspection Report */}
-//           <div className="flex flex-col flex-1">
-//             <div className="text-white font-bold flex items-end gap-4 mt-3">
-//               <span className="w-[63px] h-[58px] font-semibold text-[64px] leading-none">
-//                 06
-//               </span>
-//               <p className="text-[24px] leading-[28px] font-medium text-gray-300">
-//                 Inspection Report
-//               </p>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Icon Section */}
-//         <div className="flex space-x-4 w-full md:w-[111px] h-auto justify-center mt-4 md:mt-0">
-//           <img src={Icons.wifiIcon} alt="WiFi Icon" className="w-full h-full" />
-//         </div>
-//       </div>
-
-//       {/* Cards Section */}
-//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-//         <Card
-//           icon={HomeIcon}
-//           value={12}
-//           label="Total Devices"
-//           buttonText="View"
-//         />
-//         <Card
-//           icon={BellIcon}
-//           value={6.0}
-//           label="Offline Devices"
-//           buttonText="Check"
-//         />
-//         <Card
-//           icon={ShieldCheckIcon}
-//           value={8}
-//           label="Online Devices"
-//           buttonText="Details"
-//         />
-//       </div>
-
-//       {/* Device Information Section */}
-//       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
-//         <div className="grid grid-cols-1 gap-4">
-//           <h2 className="text-xl font-semibold mb-4">Device Information</h2>
-
-//           {/* Device Cards - Each card will take full width on mobile and be responsive */}
-//           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-//             <DeviceCard
-//               icon1={HomeIcon}
-//               value={12}
-//               label="Devices"
-//               buttonText="View"
-//               onButtonClick={() => console.log("Device Button Clicked")}
-//             />
-//             <DeviceCard
-//               icon1={HomeIcon}
-//               icon2={BellIcon}
-//               value={12}
-//               label={
-//                 <>
-//                   Device
-//                   <br />
-//                   Items
-//                 </>
-//               }
-//             />
-//             <DeviceCard
-//               icon1={HomeIcon}
-//               icon2={BellIcon}
-//               value={12}
-//               label="Devices"
-//               onButtonClick={() => console.log("Devices Button Clicked")}
-//             />
-//             <DeviceCard
-//               icon1={HomeIcon}
-//               icon2={BellIcon}
-//               value={12}
-//               label="Device Items"
-//               onButtonClick={() => console.log("Device Items Button Clicked")}
-//             />
-//           </div>
-//         </div>
-
-//         {/* Chart Section */}
-//         <div className="grid grid-cols-1 gap-4 justify-center">
-//           {/* Heading Outside the Box */}
-//           <h2 className="text-xl font-semibold mb-2">Additional Information</h2>
-
-//           <div className="bg-white bg-opacity-20 backdrop-blur-md rounded-[16px] border border-transparent pt-[24px] px-4 pb-[24px] w-full h-[500px] mt-8">
-//             <div className="grid grid-cols-1 md:grid-cols-2 mt-4 justify-between text-left">
-//               <div>
-//                 <img
-//                   src={Icons.Maskgroup}
-//                   alt="Mask Group Icon"
-//                   className="w-[32px] h-[32px] md:w-[42px] md:h-[42px]" // Adjust size for mobile and larger screens
-//                 />
-//               </div>
-//               <div className="flex items-center md:justify-end">
-//                 <p className="text-center md:text-right">8th September 2024</p>
-//               </div>
-//             </div>
-
-//             {/* Text Section */}
-//             <div className="grid grid-cols-1 md:grid-cols-2 mt-4 justify-between text-left">
-//               <div>
-//                 <h2 className="text-xl md:text-2xl font-bold">My Project</h2>
-//                 <p className="text-sm font-normal">Moli Area</p>
-//               </div>
-//               <div className="flex items-center md:justify-end">
-//                 <div className="grid grid-cols-2 justify-between">
-//                   <div className="w-[8px] h-[50px] bg-slate-400 mx-auto" />
-//                   <div>
-//                     <h3 className="text-xl md:text-2xl font-bold">01</h3>
-//                     <p className="text-sm font-normal">Gateway</p>
-//                   </div>
-//                 </div>
-//                 <div className="grid grid-cols-2 justify-between">
-//                   <div className="w-[8px] h-[50px] bg-green-400 mx-auto" />
-//                   <div>
-//                     <h3 className="text-xl md:text-2xl font-bold">01</h3>
-//                     <p className="text-sm font-normal">Gateway</p>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-
-//             {/* Chart Section */}
-//             <div className="mb-12 flex justify-center mt-6">
-//               <img
-//                 src={Frame10588}
-//                 alt="Chart Representation"
-//                 className="max-w-[328px] h-auto md:max-w-[400px]" // Adjust chart image size for mobile and larger screens
-//               />
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MainContent;
-
 import React from "react";
 import "../../styles/MainContent.scss";
 import Icons from "../../constants/Icons";
@@ -289,18 +73,13 @@ const MainContent = ({ isDarkMode }) => {
           <ResourceStatistics />
         </div>
         {/* Resource Section for Large Screens */}
-        <div className="hidden md:flex flex-col gap-8 w-full h-auto">
+        <div className="hidden md:flex flex-row gap-8 w-full h-auto">
           <div className="flex flex-col flex-1">
-            <div className="flex items-center justify-between text-xl font-medium ">
+            <div className="flex items-center justify-between text-xl font-medium mb-2">
               <p>Resource Statistics</p>
-              <img
-                src={Icons.wifiIcon}
-                alt="WiFi Icon"
-                className="w-auto h-auto md:w-[80px] md:h-[80px] ml-4" // Added margin for spacing
-              />
             </div>
 
-            <div className="flex flex-col md:flex-row gap-16 mt-3">
+            <div className="flex flex-col md:flex-row gap-16 mt-3 w-full">
               {[
                 { count: 12, label: "Total Devices" },
                 { count: 6, label: "Online Total" },
@@ -317,6 +96,16 @@ const MainContent = ({ isDarkMode }) => {
                   </p>
                 </div>
               ))}
+              {/* This is where the icon image is placed */}
+              <div className="ml-auto flex items-center">
+                {" "}
+                {/* ml-auto pushes the image to the end */}
+                <img
+                  src={Icons.wifiIcon}
+                  alt="WiFi Icon"
+                  className="hidden md:block w-auto h-auto md:w-[80px] md:h-[80px]"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -361,7 +150,7 @@ const MainContent = ({ isDarkMode }) => {
                   <div className="text-center flex justify-center">
                     <FaWifi className="text-xl mb-2 mx-auto" />
                   </div>
-                  <h2 className={`text-lg md:text-3xl font-semibold`}>
+                  <h2 className={`text-lg md:text-3xl font-medium`}>
                     No Project Info
                   </h2>
                 </div>
